@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8$188k=sem@5)di1f&5i6j1px!3t=+r$au6on%euq@6i@fr%@8'
+SECRET_KEY = 'django-insecure-=qasb981h%+5_i$kyum!oq=!emb95-&pc^k-+ptg@kp_0&*qwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,12 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # Adicionado para habilitar o rest_framework
-    'corsheaders', # Adicionado para habilitar o corsheaders
+    'users',
+    'tasks',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', # Adicionado para habilitar o corsheaders
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -45,7 +47,7 @@ ROOT_URLCONF = 'todo_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'build'], # Adicionado para apontar para a pasta build do frontend
+        'DIRS': [BASE_DIR / 'build'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'pt-BR' # Alterado para pt-BR
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'UTC'
 
@@ -110,12 +112,11 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'build/static'
-] # Adicionado para apontar para a pasta static do frontend
+] # adicionado para o React
 
-STATIC_ROOT = BASE_DIR / 'static' # Adicionado para apontar para a pasta static do frontend
+STATIC_ROOT = BASE_DIR / 'static' # adicionado para o React
 
-CORS_ORIGIN_ALLOW_ALL = True # Adicionado para habilitar o corsheaders
-
+CORS_ORIGIN_ALLOW_ALL = True 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
